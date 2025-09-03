@@ -64,7 +64,7 @@ const handleScroll = (id) => (e) => {
           </Box>
         </Box>
 
-        {/* Desktop: Tabs */}
+        {/*  Tabs */}
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <Tabs
             value={value}
@@ -79,7 +79,7 @@ const handleScroll = (id) => (e) => {
           </Tabs>
         </Box>
 
-        {/* Mobile: Hamburger + Drawer */}
+        {/* Mobile view */}
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
           <IconButton sx={{ color: 'white' }} onClick={() => setOpen(true)}>
             <MenuIcon />
@@ -103,14 +103,14 @@ const handleScroll = (id) => (e) => {
         </Box>
       </Box>
 
-      {/* Background image with tagline overlay */}
+      
       <Box sx={{ position: 'relative', width: '100%' }}>
         <img
           src={bg}
           alt="bg"
           style={{
             width: '100%',
-            height: '30vh', // 30% of viewport height
+            height: '30vh', 
             objectFit: 'fill',
           }}
         />

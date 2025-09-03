@@ -1,5 +1,4 @@
-import React from "react";
-import ReactPlayer from "react-player";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -37,7 +36,7 @@ export default function RepairVideo() {
               lg={3}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              {/* Wrapper ensures proper sizing */}
+            
               <div style={{ width: "100%", maxWidth: "300px" }}>
                 <video
                   src={video.videolink}
@@ -47,9 +46,7 @@ export default function RepairVideo() {
                   style={{ background: "black" }}
                / >
                  
-                // <p style={{ marginTop: "8px", fontWeight: "500" }}>
-                //   {video.title}
-                // </p>
+              
               </div>
             </Col>
           ))}
