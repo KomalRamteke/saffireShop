@@ -1,4 +1,5 @@
 [
+    { "title": "Mobile", "img": "/productImges/mobile.jpeg" },
   { "title": "TV", "img": "/productImges/tv.jpg" },
   { "title": "Laptop", "img": "/productImges/laptop.jpeg" },
   { "title": "PC", "img": "/productImges/pcPeripherals.webp" },

@@ -1,11 +1,13 @@
-import  { useState } from "react";
+import { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Box from "@mui/material/Box";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function ContactUs() {
   const [form, setForm] = useState({
     name: "",
@@ -18,12 +20,40 @@ export default function ContactUs() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const validate = () => {
+    let isValid = true;
+
+    if (!form.name || form.name.trim() === "") {
+      isValid = false;
+      toast.error("Name should not be empty");
+    }
+
+    if (!form.mobile || form.mobile.length !== 10) {
+      isValid = false;
+      toast.error("Mobile number should be 10 digits");
+    }
+
+    if (form.email && !/\S+@\S+\.\S+/.test(form.email)) {
+      isValid = false;
+      toast.error("Email is invalid");
+    }
+
+    // if (!form.message || form.message.trim() === "") {
+    //   isValid = false;
+    //   toast.error("Message should not be empty");
+    // }
+
+    return isValid;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!validate()) return; // Stop submission if invalid
+
     const formData = {
-      title: "New Enquiry",      
-      name: form.name,          
+      title: "New Enquiry",
+      name: form.name,
       email: form.email,
       mobile: form.mobile,
       message: form.message,
@@ -32,28 +62,27 @@ export default function ContactUs() {
 
     emailjs
       .send(
-        "service_i5g8zze",    //  Service ID
-        "template_bjnwib9",   //  Template ID
+        "service_i5g8zze", // Service ID
+        "template_bjnwib9", // Template ID
         formData,
-        "GdCzJ8LD9OhVD7Wa-"   //  Public Key
+        "GdCzJ8LD9OhVD7Wa-" // Public Key
       )
       .then(
         (result) => {
           console.log(result.text);
-         
-           toast.success("Form submitted and email sent! !");
+          toast.success("Form submitted and email sent!");
           setForm({ name: "", email: "", mobile: "", message: "" });
         },
         (error) => {
           console.log(error.text);
-          toast.error("Failed to send email. Please try again! !");
+          toast.error("Failed to send email. Please try again!");
         }
       );
   };
 
   return (
-    <div  id="contact-us">
-    <ToastContainer/>
+    <div id="contact-us">
+      <ToastContainer />
       <h1
         style={{
           fontSize: "2rem",
@@ -66,9 +95,8 @@ export default function ContactUs() {
         Contact Us
       </h1>
 
-      <Box style={{ backgroundColor: "#000B23",width:"100%",}}>
+      <Box style={{ backgroundColor: "#000B23", width: "100%" }}>
         <Row className="justify-content-md-center">
-       
           <Col xs lg="6">
             <div style={{ width: "100%", height: "500px", paddingTop: "30px" }}>
               <iframe
@@ -88,12 +116,11 @@ export default function ContactUs() {
                 ✉️ swapnil4myself@gmail.com
               </Box>
               <Box sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}>
-                ⏰ Timing: Mon–Sat 10:00–19:00 (Please call before visiting)
+                ⏰ Timing: Mon–Sat 10:00 AM–7:00 PM (Please call before visiting)
               </Box>
             </div>
           </Col>
 
-        
           <Col xs lg="3" className="mt-2" style={{ color: "white" }}>
             <EnquiryForm
               form={form}
@@ -113,13 +140,14 @@ function EnquiryForm({ form, handleChange, handleSubmit }) {
       <h5 className="text-center mb-3">Enquiry Form</h5>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>
+            Name <span style={{ color: "red" }}>*</span>
+          </Form.Label>
           <Form.Control
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
-            required
           />
         </Form.Group>
 
@@ -130,18 +158,18 @@ function EnquiryForm({ form, handleChange, handleSubmit }) {
             name="email"
             value={form.email}
             onChange={handleChange}
-            required
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Mobile</Form.Label>
+          <Form.Label>
+            Mobile <span style={{ color: "red" }}>*</span>
+          </Form.Label>
           <Form.Control
             type="tel"
             name="mobile"
             value={form.mobile}
             onChange={handleChange}
-            required
           />
         </Form.Group>
 
@@ -153,7 +181,6 @@ function EnquiryForm({ form, handleChange, handleSubmit }) {
             value={form.message}
             onChange={handleChange}
             rows={3}
-            required
           />
         </Form.Group>
 
