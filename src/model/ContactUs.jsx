@@ -68,7 +68,7 @@ export default function ContactUs() {
 
       <Box style={{ backgroundColor: "#000B23",width:"100%",}}>
         <Row className="justify-content-md-center">
-          {/* Google Maps Section */}
+       
           <Col xs lg="6">
             <div style={{ width: "100%", height: "500px", paddingTop: "30px" }}>
               <iframe
@@ -93,7 +93,7 @@ export default function ContactUs() {
             </div>
           </Col>
 
-          {/* Contact Form Section */}
+        
           <Col xs lg="3" className="mt-2" style={{ color: "white" }}>
             <EnquiryForm
               form={form}
