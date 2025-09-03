@@ -1,0 +1,17 @@
+[
+  { "title": "TV", "img": "/productImges/tv.jpg" },
+  { "title": "Laptop", "img": "/productImges/laptop.jpeg" },
+  { "title": "PC", "img": "/productImges/pcPeripherals.webp" },
+  { "title": "CCTV", "img": "/productImges/cctv.jpeg" },  
+  { "title": "Hometheater", "img": "/productImges/hometheater.jpg" },
+  { "title": "LED Lights", "img": "/productImges/LEDDJLight.webp" },
+   { "title": "Sharpee", "img": "/productImges/sharpee.jpeg" },
+  { "title": "Speaker", "img": "/productImges/speaker.jpg" },
+
+  { "title": "Mixer", "img": "/productImges/mixer.jpg" },
+   { "title": "Amplifier", "img": "/productImges/amplifier.jpg" },
+  { "title": "Car Amplifier", "img": "/productImges/carAmplifier.jpg" },
+  { "title": "Car Cluster Meter", "img": "/productImges/carClusterMeter.jpg" },
+  { "title": "Car ECM", "img": "/productImges/carecm.jpg" }
+
+]
