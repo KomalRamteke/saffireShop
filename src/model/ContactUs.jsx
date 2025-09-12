@@ -62,10 +62,11 @@ export default function ContactUs() {
 
     emailjs
       .send(
-        "service_i5g8zze", // Service ID
-        "template_bjnwib9", // Template ID
+        "service_sathfsn", // Service ID
+        "template_vkufmai", // Template ID
         formData,
-        "GdCzJ8LD9OhVD7Wa-" // Public Key
+
+        "EDhas5j2ChDr5HBSg" // Public Key
       )
       .then(
         (result) => {
@@ -109,14 +110,36 @@ export default function ContactUs() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <Box sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}>
+              <Box
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+              >
                 📞 8421363540
+                <Button
+                  className="mb-2 mx-3 btn-sm"
+                  variant="success"
+                  onClick={() =>
+                    window.open("https://wa.me/918421363540", "_blank")
+                  }
+                >
+                  Chat Us
+                </Button>
               </Box>
-              <Box sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}>
+              <Box
+                sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}
+                className="mt-1"
+              >
                 ✉️ swapnil4myself@gmail.com
               </Box>
-              <Box sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}>
-                ⏰ Timing: Mon–Sat 10:00 AM–7:00 PM (Please call before visiting)
+              <Box
+                className="mt-1"
+                sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}
+              >
+                ⏰ Timing: Mon–Sat 10:00 AM–7:00 PM (Please call before
+                visiting)
               </Box>
             </div>
           </Col>
